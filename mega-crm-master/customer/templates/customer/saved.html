@@ -1,0 +1,39 @@
+{% extends 'customer/base.html' %}
+
+{% block content %}
+
+<section>
+    <div class="container">
+
+        <div class="text-center">
+            <h2>
+                My Saved Products
+            </h2>
+        </div>
+
+        <div class="row mt-3">
+
+            {% for save in saves %}
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="{{save.product.image.url}}" class="card-img-top" alt="card-img-top">
+                    <div class="card-body">
+                      <h5 class="card-title">{{save.product.name}}</h5>
+                      <p class="card-text"> {{save.product.desc}} </p>
+                      <p class="card-text"><small class="text-muted"> ${{save.product.price}}</small></p>
+                    </div>
+                  </div>
+            </div>
+            {% empty %}
+
+
+            {% endfor %}
+
+        </div>
+
+
+
+    </div>
+</section>
+
+{% endblock %}

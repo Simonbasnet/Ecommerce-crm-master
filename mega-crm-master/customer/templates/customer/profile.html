@@ -1,0 +1,50 @@
+{% extends 'customer/base.html' %}
+{% load static %}
+{% block content %}
+
+<section>
+    <div class="container">
+
+        <div class="ms-4 mt-5"><h1>My Profile</h1></div>
+
+        <div class="row">
+
+            <div class="mb-5"><img class="rounded-img" src="{% static 'customer/images/avatar.png' %}" alt=""  height="100"></div>
+
+            <form action="">
+
+                <div class="row">
+                    <div class="col-md-6 mb-3 px-4">
+                         <input class="form-control form-control-lg" type="text" placeholder="Full Name" aria-label=".form-control-lg">
+                    </div>
+                    <div class="col-md-6 mb-3 px-4">
+                        <input class="form-control form-control-lg" type="text" placeholder="Username" value="{{user.username}}" readonly>
+                    </div>
+                    <div class="col-md-6 mb-3 px-4">
+                        <input class="form-control form-control-lg" type="text" placeholder="Email" value="{{user.email}}" readonly>
+                    </div>
+                    <div class="col-md-6 mb-3 px-4">
+                        <input class="form-control form-control-lg" type="text" placeholder="Location" aria-label=".form-control-lg">
+                    </div>
+                    <div class="col-md-6 mb-3 px-4">
+                        <input class="form-control form-control-lg" type="text" placeholder="Gender" aria-label=".form-control-lg">
+                    </div>
+
+
+                </div>
+                
+
+            </form>
+
+
+        </div>
+
+
+
+
+    </div>
+</section>
+
+
+
+{% endblock %}

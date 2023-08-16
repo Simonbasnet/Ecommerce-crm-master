@@ -1,0 +1,47 @@
+{% extends 'customer/base.html' %}
+
+{% block content %}
+
+<section>
+
+    <div class="container">
+        
+        <div class="text-center">
+            {% if message %}
+            <div class="alert alert-success" role="alert">
+               {{message}}
+              </div>
+            {% endif %}
+            <h2>Create a Ticket</h2>
+            <p>Create a new support ticket and we will get back to you As Soon As Possible.</p>
+        </div>
+
+
+        <div class="px-md-5 mx-md-5 text-center">
+            <form action="{% url 'createticket' %}" method="post">
+
+                <input name="email" class="form-control form-control-lg mb-2" type="email" placeholder="Email" value="{{user.email}}" aria-label=".form-control-lg" disabled>
+                <input name="subject" class="form-control form-control-lg mb-2" type="text" placeholder="Subject" aria-label=".form-control-lg">
+                <select name="type" class="form-select mb-2" aria-label="Default select">
+                    <option selected="">Ticket type</option>
+                    <option value="General">General</option>
+                    <option value="Complaint">Complaint</option>
+                    <option value="Refund">Refund</option>
+                </select>
+
+                <div class="form-floating">
+                    <textarea name="message" class="form-control mb-3" placeholder="Leave a comment here" id="floatingTextarea" style="height: 100px"></textarea>
+                    <label for="floatingTextarea">Message</label>
+                  </div>
+                  {% csrf_token %}
+
+                  <button type="submit" class="btn btn-primary">Submit</button>
+
+            </form>
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

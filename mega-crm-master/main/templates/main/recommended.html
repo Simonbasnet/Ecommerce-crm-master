@@ -1,0 +1,76 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+
+<section class="bg-light">
+    <div class="container p-5">
+
+        <div class="row">
+            <div class="text-center">
+                <h2>Recommended Products</h2>
+                <p>Check out products recommended to you based on your recent history</p>
+            </div>
+
+            <div class="row">
+
+                {% if user.is_authenticated %}
+
+                {% for item in recom %}
+
+                
+
+                <div class="col-md-4">
+                    <div class="p-2 pb-3">
+                        <div class="product-wap card rounded-0">
+                            <div class="card rounded-0">
+                                <img class="card-img rounded-0 img-fluid" src="{{item.image.url}}">
+                                <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                                    <ul class="list-unstyled">
+                                        <li><a class="btn btn-success text-white" href="shop-single.html"><i class="far fa-heart"></i></a></li>
+                                        <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i class="far fa-eye"></i></a></li>
+                                        <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i class="fas fa-cart-plus"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <a href="{% url 'viewproduct' item.id %}" class="h3 text-decoration-none stretched-link">{{item.name}}</a>
+                                
+                                <p class="text-center mb-0">Rs.{{item.price}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                
+
+                {% empty %}
+
+                <div class="text-center">
+                    <h5>You haven't shown interest in any product so we have nothing to recommend</h5>
+                </div>
+               
+
+                {% endfor %}
+                {% else %}
+                <div class="text-center">
+                    <h5>Please login/register to see recommendations</h5>
+                </div>
+
+                {% endif %}
+                
+
+                
+
+
+                
+
+            </div>
+
+
+
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

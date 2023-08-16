@@ -1,0 +1,59 @@
+{% extends 'customer/base.html' %}
+
+{% block content %}
+
+<section>
+
+    <div class="container">
+        <div class="text-center mb-4">
+            <h2>View Support Tickets</h2>
+            <a class="position-relative text-decoration-none btn btn-success" href="{% url 'createticket' %}">
+                <i class="fa fa-fw fa-user text-dark mr-3"></i>
+                Create Ticket
+            </a>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 col-lg-12 col-sm-12">
+                <div class="white-box">
+                    <div class="d-md-flex mb-3">
+                        <h3 class="box-title mb-0"></h3>
+                        
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table no-wrap">
+                            <thead>
+                                <tr>
+                                    <th class="border-top-0">#</th>
+                                    <th class="border-top-0">Subject</th>
+                                    <th class="border-top-0">Priority</th>
+                                    <th class="border-top-0">Type</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for ticket in tickets %}
+                                <tr>
+                                    <td> {{loop.index}} </td>
+                                    <td class="txt-oflo"> {{ticket.desc}} </td>
+                                    <td> {{ticket.priority}} </td>
+                                    <td class="txt-oflo">{{ ticket.type }}</td>
+                                </tr>
+                                {% empty %}
+                                <tr><td>No open support tickets</td></tr>
+                                
+
+                                {% endfor %}
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+</section>
+
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends 'crm/base.html' %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <!-- ============================================================== -->
+    <!-- Start Page Content -->
+    <!-- ============================================================== -->
+    <div class="row">
+        <div class="col-md-12">
+            <div class="white-box">
+                <h2 class="fw-bold">Available products</h2>
+                <a href="{% url 'newproduct' %}" class="btn btn-primary">Add Product</a>
+                
+
+            </div>
+        </div>
+
+        {% for product in products %}
+
+        <div class="col-md-3">
+            <div class="card">
+                <img src="{{product.image.url}}" class="card-img-top" alt="card-img-top">
+                <div class="card-body">
+                  <h5 class="card-title">{{product.name}}</h5>
+                  <p class="card-text"> {{product.desc}} </p>
+                  <p class="card-text"><small class="text-muted"> ${{product.price}} </small></p>
+                  <p class="card-text"><small class="text-muted"> {{product.quantity}} Units left </small></p>
+                </div>
+              </div>
+            
+        </div>
+
+        {% empty %}
+
+        <div class="col-md-12">
+            <div class="white-box">
+                <h2 class="fw-bold">No products available. Add products now</h2>
+            </div>
+        </div>
+
+        {% endfor %}
+
+        
+
+    </div>
+    <!-- ============================================================== -->
+    <!-- End PAge Content -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Right sidebar -->
+    <!-- ============================================================== -->
+    <!-- .right-sidebar -->
+    <!-- ============================================================== -->
+    <!-- End Right sidebar -->
+    <!-- ============================================================== -->
+</div>
+
+{% endblock %}

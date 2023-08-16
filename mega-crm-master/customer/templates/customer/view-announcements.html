@@ -1,0 +1,38 @@
+{% extends 'customer/base.html' %}
+
+{% block content %}
+
+
+<section>
+    <div class="container">
+
+        <div class="text-center mb-3">
+            <h2 class="fw-bold">General Announcements</h2>
+        </div>
+
+        <div class="col-12 px-5 mx-5">
+
+            {% for ann in announcements %}
+            <div class="card mb-3">
+                <div class="card-body">
+                  <h5 class="card-title">Announcement</h5>
+                  <h6 class="card-subtitle mb-2 text-muted"> {{ann.date}} </h6>
+                  <p class="card-text"> {{ann.message}} </p>
+                  
+                </div>
+              </div>
+            {% empty %}
+              <div class="mt-5 text-center">
+                   <p>No new announcements</p>
+              </div>
+             
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+</section>
+
+
+{% endblock %}

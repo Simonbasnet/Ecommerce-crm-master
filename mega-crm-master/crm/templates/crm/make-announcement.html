@@ -1,0 +1,45 @@
+{% extends 'crm/base.html' %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <!-- ============================================================== -->
+    <!-- Start Page Content -->
+    <!-- ============================================================== -->
+    <div class="row">
+        <div class="col-md-12">
+            <div class="white-box">
+               {% if success %}
+               <div class="alert alert-success" role="alert">
+                {{success}}
+              </div>
+               {% endif %}
+                <div class="text-center">
+                    <h2 class="mb-3">Send a message to all users</h2>
+                </div>
+                <div class="text-center">
+                    <form action="{% url 'make-announcement' %}" method="post">
+                    <textarea name="announcement" class="form-control" placeholder="Enter message here" id="floatingTextarea" style="height: 100px"></textarea>
+                    <button type="submit" class="btn btn-primary mt-4">Send</button>
+                    {% csrf_token %}
+                </form>
+                </div>
+                
+                
+
+            </div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- End PAge Content -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Right sidebar -->
+    <!-- ============================================================== -->
+    <!-- .right-sidebar -->
+    <!-- ============================================================== -->
+    <!-- End Right sidebar -->
+    <!-- ============================================================== -->
+</div>
+
+{% endblock %}

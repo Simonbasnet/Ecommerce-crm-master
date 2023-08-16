@@ -1,0 +1,50 @@
+{% extends 'crm/base.html' %}
+
+{% block content %}
+
+
+<div class="container-fluid">
+    <!-- ============================================================== -->
+    <!-- Start Page Content -->
+    <!-- ============================================================== -->
+    <div class="row">
+        <div class="col-md-6">
+            <div class="white-box">
+                <h2 class="fw-bold">General Tasks</h2>
+                {% for task in gentasks %}
+
+                {% empty %}
+
+                <h4>No general tasks</h4>
+                {% endfor %}
+
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="white-box">
+                <h2 class="fw-bold">My Tasks</h2>
+                
+                {% for task in mytasks %}
+
+                {% empty %}
+                <h4>You have no tasks</h4>
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- End PAge Content -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Right sidebar -->
+    <!-- ============================================================== -->
+    <!-- .right-sidebar -->
+    <!-- ============================================================== -->
+    <!-- End Right sidebar -->
+    <!-- ============================================================== -->
+</div>
+
+
+{% endblock %}

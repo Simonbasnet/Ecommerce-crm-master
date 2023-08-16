@@ -1,0 +1,49 @@
+{% extends 'customer/base.html' %}
+
+{% block content %}
+
+<section>
+    <div class="container">
+        <h1 class="mt-4">Hello {{user}}!</h1>
+
+        <div class="row">
+        
+            <div class="col-md-4 mb-3">
+                <div class="card shadow-sm py-5">
+                    <div class="card-body text-center">
+                        <h3><i class='bx bx-cart bx-md'></i> Orders</h3>
+                      <h1>0</h1>
+                    </div>
+                  </div>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <div class="card shadow-sm py-5">
+                    <div class="card-body text-center">
+                        <h3><i class='bx bx-heart bx-md'></i> Saved Items</h3>
+                      <h1> {{saves.count}} </h1>
+                    </div>
+                  </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="card shadow-sm py-5">
+                    <div class="card-body text-center">
+                        <h3><i class='bx bx-message-square-detail bx-md'></i> Announcements</h3>
+                      <h1> {{anns.count}} </h1>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-5">
+              <h2>Welcome to your MegaMart Customer Dashboard</h2>
+            </div>
+
+        </div>
+
+    </div>
+
+   
+
+</section>
+
+{% endblock %}

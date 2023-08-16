@@ -1,0 +1,43 @@
+{% extends 'crm/base.html' %}
+
+{% block content %}
+
+
+
+<div class="container-fluid">
+    <!-- ============================================================== -->
+    <!-- Start Page Content -->
+    <!-- ============================================================== -->
+    <div class="row">
+        <div class="col-md-12">
+            <div class="white-box text-center">
+                
+                <form action="{% url 'newproduct' %}" method="post" enctype="multipart/form-data">
+                    <!-- <input name="name" class="form-control form-control-lg mb-3" type="text" placeholder="Product Name" aria-label="Product Name">
+                    <div class="form-floating mb-3">
+                        <textarea name="desc" class="form-control" placeholder="Leave a comment here" id="floatingTextarea" style="height: 100px"></textarea>
+                        <label for="floatingTextarea">Product Description</label>
+                    </div>
+                    <input name="price" class="form-control form-control-lg mb-3" type="number" placeholder="Price ($)" aria-label=".form-control-lg">
+                    <input name="quantity" class="form-control form-control-lg mb-3" type="number" placeholder="Quantity" aria-label=".form-control-lg">
+                    
+                    <input name="image" class="form-control" type="file" id="formFile"> -->
+                    <label for="formFile" class="form-label">Product Image</label>
+                    {{form}}<br/>
+                    <button type="submit" class="btn btn-primary">Add</button>
+                    {% csrf_token %}
+
+                </form>
+                
+
+            </div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- End PAge Content -->
+    <!-- ============================================================== -->
+</div>
+
+
+
+{% endblock %}
